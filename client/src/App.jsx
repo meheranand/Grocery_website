@@ -13,7 +13,7 @@ import Sellerlogin from './components/sellerlogin'
 import Sellerlayout from './pages/seller/Sellerlayout'
 import Addproduct from './pages/seller/Addproduct'
 import Productlist from './pages/seller/Productlist'
-import Orders from './pages/seller/orders'
+import Orders from "./pages/seller/Orders"
 
 const App = () => {
   const {product,showlogin,isseller} = useAppContext()

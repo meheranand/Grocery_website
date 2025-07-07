@@ -12,10 +12,15 @@ import cartrouter from './routes/cart_route.js';
 const app=express()
 const port=4000
 
+const allowedorigins = [
+  "http://localhost:5173",
+  "https://vercel.com/meher-anands-projects/grocery-website-anand",
+];
+
 //middleware
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors({ origin: "http://localhost:5174" , credentials: true }));
+app.use(cors({ origin: allowedorigins , credentials: true }));
 
 //DB Connection
 await connect()

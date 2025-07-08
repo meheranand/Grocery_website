@@ -21,18 +21,18 @@ export const register=async (req,res)=>{
 
         const token=jwt.sign({id:user._id},process.env.JWT_SECRET,{expiresIn:'7d'})
 
-        // res.cookie('token',token,{
-        //     httpOnly:true,
-        //     secure:process.env.NODE_ENV==='production',
-        //     sameSite:process.env.NODE_ENV==='production'?'none':'strict',
-        //     maxAge:7*24*60*1000,
-        // })
-        res.cookie("token", token, {
-          httpOnly: true,
-          secure: false, // okay for localhost
-          sameSite: "lax", // or "none" if using secure
-          maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-        });
+        res.cookie('token',token,{
+            httpOnly:true,
+            secure:process.env.NODE_ENV==='production',
+            sameSite:process.env.NODE_ENV==='production'?'none':'strict',
+            maxAge:7*24*60*1000,
+        })
+        // res.cookie("token", token, {
+        //   httpOnly: true,
+        //   secure: false, // okay for localhost
+        //   sameSite: "lax", // or "none" if using secure
+        //   maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        // });
 
         return res.json({success:true,msg:{email:user.email,name:user.name}})
     }
@@ -61,18 +61,18 @@ export const login=async(req,res)=>{
     }
 
     const token=jwt.sign({id:user._id},process.env.JWT_SECRET,{expiresIn:'7d'})
-    // res.cookie("token", token, {
-    //   httpOnly: true,
-    //   secure: process.env.NODE_ENV === "production",
-    //   sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
-    //   maxAge: 7 * 24 * 60 * 1000,
-    // });
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false, // okay for localhost
-      sameSite: "lax", // or "none" if using secure
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
+      maxAge: 7 * 24 * 60 * 1000,
     });
+    // res.cookie("token", token, {
+    //   httpOnly: true,
+    //   secure: false, // okay for localhost
+    //   sameSite: "lax", // or "none" if using secure
+    //   maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    // });
 
     return res.json({
       success: true,
@@ -102,17 +102,17 @@ export const isauth=async(req,res)=>{
 //logout user: /api/user/logout
 export const logout=async(req,res)=>{
     try {
-        // res.clearCookie("token", {
-        //   httpOnly: true,
-        //   secure: process.env.NODE_ENV === "production",
-        //   sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
-        // });
-        res.clearCookie("token" ,{
+        res.clearCookie("token", {
           httpOnly: true,
-          secure: false, // okay for localhost
-          sameSite: "lax", // or "none" if using secure
-          maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+          secure: process.env.NODE_ENV === "production",
+          sameSite: process.env.NODE_ENV === "production" ? "none" : "strict",
         });
+        // res.clearCookie("token" ,{
+        //   httpOnly: true,
+        //   secure: false, // okay for localhost
+        //   sameSite: "lax", // or "none" if using secure
+        //   maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+        // });
         return res.json({success:true,msg:'logged out sucesfully'})
     } catch (error) {
         return res.json({success:false,msg:error.message})

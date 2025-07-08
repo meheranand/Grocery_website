@@ -14,7 +14,7 @@ const port=4000
 
 const allowedorigins = [
   "http://localhost:5173",
-  "https://grocery-website-anand-phi.vercel.app",
+  "https://grocery-website-anand.vercel.app",
 ];
 
 //middleware

@@ -14,6 +14,7 @@ import Sellerlayout from './pages/seller/Sellerlayout'
 import Addproduct from './pages/seller/Addproduct'
 import Productlist from './pages/seller/Productlist'
 import Orders from "./pages/seller/Orders"
+import Updateproduct from './pages/seller/updateproduct'
 
 const App = () => {
   const {product,showlogin,isseller} = useAppContext()
@@ -56,10 +57,8 @@ const App = () => {
               path="productlist"
               element={<Productlist></Productlist>}
             ></Route>
-            <Route
-              path="orders"
-              element={<Orders></Orders>}
-            ></Route>
+            <Route path="orders" element={<Orders></Orders>}></Route>
+            <Route path="updateproduct/:id" element={<Updateproduct></Updateproduct>}></Route>
           </Route>
         </Routes>
       </div>

@@ -118,7 +118,7 @@ const Productdeatails = () => {
             {/* Action Buttons */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-10 w-full">
               <button
-                onClick={() => addproduct()}
+                onClick={() => addproduct(p._id)}
                 className="w-full py-2.5 sm:py-3.5 font-medium bg-gray-100 text-gray-800/80 hover:bg-gray-200 transition text-center"
               >
                 Add to Cart

@@ -33,7 +33,7 @@ export const productlist=async(req,res)=>{
 //Get single product: /api/product/:id
 export const productbyId=async(req,res)=>{
     try {
-        const {id}=req.body
+        const {id}=req.params
         const productdata=await Product.findById(id)
         return res.json({success:true,productdata})
     } catch (error) {
@@ -53,3 +53,15 @@ export const productStock=async(req,res)=>{
         return res.json({success:false,msg:error.message})
     }
 } 
+
+//Update product instock: /api/product/update
+export const updateproduct=async(req,res)=>{
+    try {
+        const {id,productdata}=req.body;
+        await Product.findByIdAndUpdate(id,productdata)
+        return res.json({success:true,msg:'product updated successfully'})
+    } catch (error) {
+        console.log(error.message);
+        return res.json({success:false,msg:error.message})
+    }
+}

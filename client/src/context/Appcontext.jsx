@@ -145,7 +145,7 @@ export const AppContextProvider=({children})=>{
       for(const items in cartitem){
         let productinfo=product.find((p)=>p._id===items)
         if(cartitem[items]>0){
-          res+=productinfo.offerPrice * cartitem[items]
+          res+=productinfo.offerprice * cartitem[items]
         }
       }
       return Math.floor(res*100)/100

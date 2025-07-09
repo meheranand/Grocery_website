@@ -46,20 +46,26 @@ const Navbar = ({product}) => {
 
         {/* Desktop Menu */}
         <div className="hidden sm:flex items-center gap-8">
-          <button onClick={()=>navigate('/seller')} className="text-xs font-medium rounded-4xl border px-2.5 py-1 cursor-pointer hover:bg-gray-300 text-gray-500 border-gray-200 ">
+          <button
+            onClick={() => navigate("/seller")}
+            className="text-xs font-medium rounded-4xl border px-2.5 py-1 cursor-pointer hover:bg-gray-300 text-gray-500 border-gray-200 "
+          >
             Seller Dashboard
           </button>
           <NavLink to="/" className="text-shadow-black hover:text-gray-600">
             Home
           </NavLink>
-          <NavLink to="/allproducts" className="text-shadow-black hover:text-gray-600">
+          <NavLink
+            to="/allproducts"
+            className="text-shadow-black hover:text-gray-600"
+          >
             All products
           </NavLink>
 
           <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-300 px-3 rounded-full">
             <input
-              onChange={(e)=>{
-                setsearch(e.target.value)
+              onChange={(e) => {
+                setsearch(e.target.value);
                 navigate("/allproducts");
               }}
               className="py-1.5 w-full bg-transparent outline-none placeholder-gray-500"
@@ -91,7 +97,10 @@ const Navbar = ({product}) => {
             </svg>
           </div>
 
-          <div onClick={()=>navigate('/cart')} className="relative cursor-pointer">
+          <div
+            onClick={() => navigate("/cart")}
+            className="relative cursor-pointer"
+          >
             <svg
               width="18"
               height="18"
@@ -122,10 +131,16 @@ const Navbar = ({product}) => {
             <div className="relative group">
               <img src={assets.profile_icon} className="w-10" alt="" />
               <ul className="hidden group-hover:block absolute top-10 right-0 bg-white rounded-md w-30 border border-gray-400">
-                <li onClick={()=>navigate('/myorders')} className="cursor-pointer ps-4 hover:bg-green-100 py-1">
+                <li
+                  onClick={() => navigate("/myorders")}
+                  className="cursor-pointer ps-4 hover:bg-green-100 py-1"
+                >
                   My Orders
                 </li>
-                <li onClick={logout} className="cursor-pointer ps-4 hover:bg-green-100 py-1">
+                <li
+                  onClick={logout}
+                  className="cursor-pointer ps-4 hover:bg-green-100 py-1"
+                >
                   Logout
                 </li>
               </ul>
@@ -174,7 +189,7 @@ const Navbar = ({product}) => {
               Home
             </NavLink>
             <NavLink
-              to="/"
+              to="/allproducts"
               className="text-shadow-black hover:text-gray-600"
               onClick={() => setOpen(false)}
             >

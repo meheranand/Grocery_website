@@ -39,7 +39,7 @@ const Navbar = ({product}) => {
     // console.log(cartamount(),cartitem)
   return (
     <div className="sticky top-0 z-50 bg-white">
-      <nav className="shadow flex items-center justify-between px-6 md:px-16 lg:px-24 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
+      <nav className="shadow flex items-center justify-between px-6 md:px-10 lg:px-10 xl:px-32 py-4 border-b border-gray-300 bg-white relative transition-all">
         <NavLink>
           <img className="h-9" src={assets.logo} alt="dummyLogoColored" />
         </NavLink>

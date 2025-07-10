@@ -156,6 +156,7 @@ export const AppContextProvider=({children})=>{
       const cart=structuredClone(cartitem)
       delete cart[id];
       setcartitem(cart)
+      toast.success("Removed from Cart");
     };
 
     const value = {

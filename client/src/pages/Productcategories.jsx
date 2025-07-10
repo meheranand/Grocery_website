@@ -13,7 +13,7 @@ const Productcategories = () => {
     const filter=product.filter((val)=>(
         val.category===searchcategory.text
     ))
-    console.log(searchcategory)
+    // console.log(searchcategory)
   return (
     <div className="mt-16 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-30 flex flex-col">
       {searchcategory && (

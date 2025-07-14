@@ -93,7 +93,7 @@ export const isauth=async(req,res)=>{
         return res.json({
           success: true,
           user
-        });
+        })
     } catch (error) {
         return res.json({success:false,msg:error.message})
     }

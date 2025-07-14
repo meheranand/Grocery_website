@@ -2,9 +2,31 @@ import React, { useEffect } from 'react'
 import { useAppContext } from './../../context/Appcontext';
 import { useNavigate } from 'react-router-dom';
 import Updateproduct from './updateproduct';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const Productlist = () => {
     const {product,fetchproducts,navigate}=useAppContext()
+
+    const togglestock=async(id,instock)=>{
+      try {
+        const { data } = await axios.post(
+          `${import.meta.env.VITE_BACKEND_URL}/api/product/stock`,
+          { id, instock },
+          { withCredentials: true }
+        );
+        if(data.success){
+          fetchproducts()
+          toast.success(data.msg)
+        }
+        else{
+          toast.error(data.msg)
+        }
+      } catch (error) {
+        console.log(error.message)
+        toast.error(error.message)
+      }
+    }
 
     useEffect(()=>{
       fetchproducts()
@@ -49,6 +71,7 @@ const Productlist = () => {
                       <input
                         type="checkbox"
                         className="sr-only peer"
+                        onClick={()=>togglestock(product._id,!product.instock)}
                         defaultChecked={product.instock}
                       />
                       <div className="w-12 h-7 bg-slate-300 rounded-full peer peer-checked:bg-blue-600 transition-colors duration-200"></div>

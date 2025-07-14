@@ -1,18 +1,25 @@
-import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useAppContext } from '../context/Appcontext'
 import { categories } from '../assets/assets'
 import Productcard from '../components/productcard'
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 const Productcategories = () => {
     const {category}=useParams()
     const {product}=useAppContext()
+    // const [filter,setfilter]=useState()
     const searchcategory=categories.find((val)=>(
         val.path===category
     ))
     const filter=product.filter((val)=>(
         val.category===searchcategory.text
     ))
+    // useEffect(()=>{
+    //   const result= product.filter((val)=>val.category===searchcategory.text)
+    //   setfilter(result)
+
+    // },[product])
     // console.log(searchcategory)
   return (
     <div className="mt-16 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-30 flex flex-col">

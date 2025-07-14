@@ -118,14 +118,24 @@ const Productdeatails = () => {
             {/* Action Buttons */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mt-6 sm:mt-10 w-full">
               <button
+                disabled={p.instock === false}
                 onClick={() => addproduct(p._id)}
-                className="w-full py-2.5 sm:py-3.5 font-medium bg-gray-100 text-gray-800/80 hover:bg-gray-200 transition text-center"
+                className={
+                  p.instock === false
+                    ? "w-full py-2.5 sm:py-3.5 font-medium bg-gray-100 text-gray-800/80 hover:bg-gray-200 transition text-center disabled:cursor-not-allowed"
+                    : "w-full py-2.5 sm:py-3.5 font-medium bg-gray-100 text-gray-800/80 hover:bg-gray-200 transition text-center"
+                }
               >
-                Add to Cart
+                {p.instock === false ? "Out of Stock" : "Add to Cart"}
               </button>
               <button
+                disabled={p.instock === false}
                 onClick={() => navigate("/cart")}
-                className="w-full py-2.5 sm:py-3.5 font-medium bg-indigo-500 text-white hover:bg-indigo-600 transition text-center"
+                className={
+                  p.instock === false
+                    ? "w-full py-2.5 sm:py-3.5 font-medium bg-indigo-500 text-white hover:bg-gray-300 transition text-center disabled:cursor-not-allowed"
+                    : "w-full py-2.5 sm:py-3.5 font-medium bg-indigo-500 text-white hover:bg-indigo-600 transition text-center"
+                }
               >
                 Buy now
               </button>

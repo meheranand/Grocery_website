@@ -12,7 +12,7 @@ export const AppContextProvider=({children})=>{
     const [userid,setuserid]=useState('')
     const [isseller,setisseller]=useState(false)
     const [showlogin,setshowlogin]=useState(false)
-    const [product,setproduct]=useState({})
+    const [product,setproduct]=useState([])
     const [cartitem,setcartitem]=useState({})
     const [search, setsearch] = useState({});
 
@@ -38,7 +38,7 @@ export const AppContextProvider=({children})=>{
         );
         if (data.success) {
         console.log(data.user);
-          setUser(data.user);
+          // setUser(data.user);
           setuserid(data.user._id)
           console.log(userid)
           setcartitem(data.user.cartitems);
@@ -46,7 +46,6 @@ export const AppContextProvider=({children})=>{
       } catch (error) {
         console.log(error.message)
         setUser(null)
-        
       }
     }
 

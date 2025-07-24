@@ -51,7 +51,7 @@ return (
   >
     <div
       onClick={(e) => e.stopPropagation()}
-      className="flex w-fit rounded-lg shadow-xl overflow-hidden h-[500px] bg-white"
+      className="flex w-fit rounded-lg shadow-xl overflow h-[500px] bg-white"
     >
       {/* Image Section */}
       <div className="hidden sm:block h-full">
@@ -85,7 +85,7 @@ return (
             />
           </div>
         )}
-        <div className="w-full ">
+        <div className="w-full">
           <p>Email</p>
           <input
             onChange={(e) => setEmail(e.target.value)}

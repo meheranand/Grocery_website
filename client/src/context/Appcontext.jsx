@@ -7,7 +7,7 @@ import axios  from 'axios';
 
 export const AppContext=createContext()
 export const AppContextProvider=({children})=>{
-    const navigate=useNavigate();
+    const navigate=useNavigate()
     const [user,setUser]=useState(null)
     const [userid,setuserid]=useState('')
     const [isseller,setisseller]=useState(false)
